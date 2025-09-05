@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Forum</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="stylesforum.css" />
+  </head>
+  <body class="antialiased">
+    <!-- Main container -->
+    <div class="main-container">
+      <!-- ===================== HEADER ===================== -->
+<header class="forum-header">
+  <div class="forum-header-top">
+    <div class="forum-logo">FRUPS / Forums</div>
+    <div class="forum-header-actions">
+      <div class="forum-search-bar-right">
+        <div class="forum-search">
+          <span class="forum-search-icon">🔍</span>
+          <input
+            type="text"
+            placeholder="Search..."
+            class="forum-search-input"
+          />
+        </div>
+        <!-- User actions stacked below search bar -->
+        <div class="forum-user-actions-row">
+          <span id="userDisplay" class="forum-user-profile" title="Profile"></span>
+          <span class="forum-user-notif" title="Notifications">🔔</span>
+          <span class="forum-user-inbox" title="Inbox">✉️</span>
+          <span class="forum-logout" title="Logout" onclick="logoutUser()">🚪</span>
+        </div>
+      </div>
+    </div>
+  </div>
+<nav class="forum-header-nav">
+    <a href="mainforum.html" class="forum-header-link active">FORUMS</a>
+    <a href="../ShopItPage/shop-it.html" class="forum-header-link">SHOP-IT</a>
+    <a href="../AdminTicketPage/admin-ticket.html" class="forum-header-link">ADMIN TICKET</a>
+</nav>
+
+  <div class="forum-header-subnav">
+    <a href="#" class="forum-header-subnav-link">NEW POSTS</a>
+    <a href="#" class="forum-header-subnav-link">TRENDING</a>
+    <a href="#" class="forum-header-subnav-link">SEARCH FORUMS</a>
+    <a href="#" class="forum-header-subnav-link">BOOKMARKS</a>
+  </div>
+</header>
+
+      <!-- ===================== MAIN CONTENT ===================== -->
+      <main class="main-content">
+        <!-- ===== Quick Search Bar (spans forum width) ===== -->
+        <div class="quick-search-bar">
+          <input
+            type="text"
+            class="quick-search-input"
+            placeholder="Quick search..."
+          />
+        </div>
+
+        <!-- ===== Forum Sections ===== -->
+        <section class="forum-sections">
+          <!-- Announcements Section -->
+          <div class="forum-section">
+            <div class="forum-section-header announcements-header">
+              Announcements
+            </div>
+            <div class="forum-row">
+              <div class="forum-row-icon">📢</div>
+              <div class="forum-row-main">
+                <div class="forum-row-title">
+                  Regarding the hate-spam against the new RTX 5090...
+                  <span class="tag-new">New</span>
+                </div>
+                <div class="forum-row-desc">
+                  Yes guys we get it, the 5090 is expensive and not worth it for
+                  most people. But please stop flooding the forum with hate comments
+                  and spam. If you don't like it, just ignore it and move on.
+                </div>
+              </div>
+              <div class="forum-row-stats">
+                <div class="forum-row-stat">
+                  <span class="stat-num">360,491</span>
+                  <span class="stat-label">Replies</span>
+                </div>
+                <div class="forum-row-stat">
+                  <span class="stat-num">2,109,019</span>
+                  <span class="stat-label">Views</span>
+                </div>
+              </div>
+              <div class="forum-row-last">
+                <div class="forum-row-last-title">
+                  <a href="#">FRUPS_Supremo</a>
+                </div>
+                <div class="forum-row-last-meta">October 26, 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- General Discussion Section -->
+          <div class="forum-section">
+            <div class="forum-section-header">General Discussion</div>
+            <div class="forum-row">
+              <div class="forum-row-icon">🔒</div>
+              <div class="forum-row-main">
+                <div class="forum-row-title">
+                  Can I legally sell my Galorio Mangawat X-5 motherboard?
+                  <span class="tag-new">New</span>
+                </div>
+                <div class="forum-row-desc">
+                    I have an old Galorio Mangawat X-5 motherboard that I no longer
+                    need. It's in good condition and works perfectly. However, I'm
+                    unsure if there are any legal restrictions on selling it since
+                    it's a discontinued model. Can anyone advise if it's legal to
+                    sell this motherboard online or locally?
+                </div>
+              </div>
+              <div class="forum-row-stats">
+                <div class="forum-row-stat">
+                  <span class="stat-num">30</span>
+                  <span class="stat-label">Replies</span>
+                </div>
+                <div class="forum-row-stat">
+                  <span class="stat-num">9.6K</span>
+                  <span class="stat-label">Views</span>
+                </div>
+              </div>
+              <div class="forum-row-last">
+                <div class="forum-row-last-title">
+                  <a href="#">Last reply by Vinze Lulab</a>
+                </div>
+                <div class="forum-row-last-meta">October 25, 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specs & Builds Section -->
+          <div class="forum-section">
+            <div class="forum-section-header">Specs & Builds</div>
+            <div class="forum-row">
+              <div class="forum-row-icon">🎮</div>
+              <div class="forum-row-main">
+                <div class="forum-row-title">
+                  Found this old Lulab terminal from the 1980s, still works!
+                  <span class="tag-new">New</span>
+                </div>
+                <div class="forum-row-desc">
+                  Just picked up a vintage Lulab terminal from the 1980s and to my surprise, it still powers on and works perfectly! Anyone else have experience restoring or using old tech like this?
+                </div>
+              </div>
+              <div class="forum-row-stats">
+                <div class="forum-row-stat">
+                  <span class="stat-num">1.4K</span>
+                  <span class="stat-label">Replies</span>
+                </div>
+                <div class="forum-row-stat">
+                  <span class="stat-num">100.9K</span>
+                  <span class="stat-label">Views</span>
+                </div>
+              </div>
+              <div class="forum-row-last">
+                <div class="forum-row-last-title">
+                  <a href="#">Last reply by Alex Chen</a>
+                </div>
+                <div class="forum-row-last-meta">October 24, 2025</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Sidebar (Right Section) ===== -->
+        <aside class="sidebar-container">
+          <!-- Recent Discussions Block -->
+          <div class="sidebar-header">Recent Discussions</div>
+          <div class="sidebar-block">
+            <ul class="sidebar-list">
+              <li>
+                <a href="#" class="sidebar-link"
+                  >Fixing old GPU need help...</a
+                >
+              </li>
+              <li>
+                <a href="#" class="sidebar-link">SD Card from Philippines is fake!!!</a>
+              </li>
+              <li>
+                <a href="#" class="sidebar-link"
+                  >Monitor flickering issue solved!</a
+                >
+              </li>
+              <li>
+                <a href="../ShopItPage/shop-it.html" class="sidebar-link"
+                  >Advertising on Shop-It?</a
+                >
+              </li>
+              <li>
+                <a href="#" class="sidebar-link"
+                  >Preparing your e-waste for reselling.</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Featured Guides Block -->
+          <div class="sidebar-header">Featured Guides</div>
+          <div class="sidebar-block">
+            <p class="sidebar-text">
+              <strong class="sidebar-strong"
+                >Ultimate PC Maintenance Checklist</strong
+              >
+              <br />
+              Learn how to keep your computer running smoothly with this
+              comprehensive guide.
+            </p>
+          </div>
+          <!-- Shop-It Promotion Block -->
+          <div class="sidebar-header">Shop-It Specials</div>
+          <div class="sidebar-block">
+            <p class="sidebar-text">
+              <strong class="sidebar-strong">RTX 5090 Now Available!</strong>
+              <br />
+              Check out our exclusive deals on the latest graphics cards in our Shop-It section.
+              <br />
+              <a href="../ShopItPage/shop-it.html" class="sidebar-link">Visit Shop-It →</a>
+            </p>
+          </div>
+          <!-- Admin Ticket Promotion Block -->
+          <div class="sidebar-header">Need Help?</div>
+          <div class="sidebar-block">
+            <p class="sidebar-text">
+              <strong class="sidebar-strong">Submit a Support Ticket</strong>
+              <br />
+              Having issues with your account or found a bug? Our admin team is here to help.
+              <br />
+              <a href="../AdminTicketPage/admin-ticket.html" class="sidebar-link">Submit a Ticket →</a>
+            </p>
+          </div>
+        </aside>
+      </main>
+
+      <!-- ===================== FOOTER ===================== -->
+      <footer class="footer">
+        <p>&copy; 2025 RUPS Tech Forums. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="forum-script.js"></script>
+  </body>
+</html>

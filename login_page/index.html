@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - PC Build Central</title>
+    <link rel="stylesheet" href="login-styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                FRUPS
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="left-panel">
+                <div class="text-center">
+                    <h1>Welcome to FRUPS!</h1>
+                    <h3>Where your old electrics can be a source of wonder and money!</h3>
+                    <h4>Note from admin: Placeholder image please ignore thanks.</h4>
+                    <img src="peter-griffin-nails.gif" alt="PC Build" class="panel-image">
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="form-container">
+                    <h1>Log in to your account</h1>
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" placeholder="Enter your username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#">Forgot password?</a>
+                        </div>
+                        <div class="form-message" id="formMessage"></div>
+                        <button type="submit" class="btn btn-login">Log in</button>
+                        <button type="button" onclick="window.location.href='index.html'" class="btn btn-cancel">
+                            Cancel
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="login-script.js"></script>
+    <script>
+        localStorage.removeItem('loggedIn');
+    </script>
+</body>
+</html> 
