@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop-It - PC Parts Marketplace</title>
+    <link rel="stylesheet" href="shop-it-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="antialiased">
+    <!-- Main  -->
+    <div class="main-container">
+        <!-- head -->
+        <header class="shop-header">
+            <div class="shop-header-top">
+                <div class="shop-logo">FRUPS / SHOP-IT</div>
+                <div class="shop-search">
+                    <span class="shop-search-icon">🔍</span>
+                    <input
+                        type="text"
+                        placeholder="Search used parts..."
+                        class="shop-search-input"
+                        id="searchInput"
+                    />
+                </div>
+                <div class="shop-user-actions">
+                    <button class="sell-btn" id="sellBtn">
+                        <i class="fas fa-plus"></i> Sell Parts
+                    </button>
+                    <span class="shop-user-profile" title="Profile" id="userProfile">
+                        <span id="userInitial">U</span>
+                    </span>
+                    <span class="shop-cart-icon" title="Watchlist" id="watchlistIcon">
+                        ❤️ <span class="watchlist-count" id="watchlistCount">0</span>
+                    </span>
+                </div>
+            </div>
+
+        <nav class="shop-header-nav">
+        <a href="../MainForumPage/mainforum.html" class="shop-header-link active">FORUMS</a>
+        <a href="shop-it.html" class="shop-header-link">SHOP-IT</a>
+        <a href="../AdminTicketPage/admin-ticket.html" class="shop-header-link">ADMIN TICKET</a>
+        </nav>
+            <div class="shop-header-subnav">
+                <a href="#" class="shop-header-subnav-link active" data-category="all">ALL PARTS</a>
+                <a href="#" class="shop-header-subnav-link" data-category="cpu">CPUs</a>
+                <a href="#" class="shop-header-subnav-link" data-category="gpu">GPUs</a>
+                <a href="#" class="shop-header-subnav-link" data-category="ram">RAM</a>
+                <a href="#" class="shop-header-subnav-link" data-category="storage">STORAGE</a>
+                <a href="#" class="shop-header-subnav-link" data-category="motherboard">MOTHERBOARDS</a>
+            </div>
+        </header>
+
+        <!-- main content -->
+        <main class="shop-main-content">
+            <!-- Hero Banner -->
+            <div class="shop-hero">
+                <div class="shop-hero-content">
+                    <h1>Buy & Sell Used PC Parts</h1>
+                    <p>Find great deals on pre-owned components from trusted sellers in the Philippines</p>
+                    <div class="hero-actions">
+                        <button class="shop-cta-button primary" id="browseBtn">Browse Parts</button>
+                        <button class="shop-cta-button secondary" id="sellNowBtn">Start Selling</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Welcome -->
+            <div class="user-welcome" id="userWelcome">
+                <div class="welcome-left">
+                    <span>Welcome back, <span id="usernameDisplay">User</span>!</span>
+                    <div class="user-stats">
+                        <span class="stat">Items Listed: <strong id="userListings">0</strong></span>
+                        <span class="stat">Items Sold: <strong id="userSales">0</strong></span>
+                        <span class="stat">Rating: <strong id="userRating">⭐ New Seller</strong></span>
+                    </div>
+                </div>
+                <div class="welcome-right">
+                    <button class="dashboard-btn" id="dashboardBtn">My Dashboard</button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="marketplace-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalListings">1,523</div>
+                    <div class="stat-label">Active Listings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalSellers">842</div>
+                    <div class="stat-label">Verified Sellers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="todaysListings">23</div>
+                    <div class="stat-label">Listed Today</div>
+                </div>
+            </div>
+
+            <!-- Recent Listings -->
+            <section class="shop-deals-section">
+                <div class="section-header">
+                    <h2 class="shop-section-title">Recent Listings</h2>
+                    <div class="sort-controls">
+                        <select id="sortBy">
+                            <option value="newest">Newest First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="shop-products-grid" id="recentListings">
+                    <!-- Products will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Browse by Category -->
+            <section class="shop-categories-section">
+                <h2 class="shop-section-title">Shop by Category</h2>
+                <div class="shop-categories-grid">
+                    <div class="shop-category-card" data-category="cpu">
+                        <div class="shop-category-image">
+                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=CPU" alt="CPUs">
+                            <div class="category-count">124 listings</div>
+                        </div>
+                        <h3>Processors</h3>
+                        <p class="avg-price">Avg: ₱4,500</p>
+                    </div>
+                    <div class="shop-category-card" data-category="gpu">
+                        <div class="shop-category-image">
+                            <img src="rtx5090.png" alt="GPUs">
+                            <div class="category-count">256 listings</div>
+                        </div>
+                        <h3>Graphics Cards</h3>
+                        <p class="avg-price">Avg: ₱12,000</p>
+                    </div>
+                    <div class="shop-category-card" data-category="ram">
+                        <div class="shop-category-image">
+                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=RAM" alt="RAM">
+                            <div class="category-count">178 listings</div>
+                        </div>
+                        <h3>Memory</h3>
+                        <p class="avg-price">Avg: ₱2,800</p>
+                    </div>
+                    <div class="shop-category-card" data-category="storage">
+                        <div class="shop-category-image">
+                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=SSD" alt="Storage">
+                            <div class="category-count">195 listings</div>
+                        </div>
+                        <h3>Storage</h3>
+                        <p class="avg-price">Avg: ₱3,200</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sell Item Modal -->
+            <div class="modal" id="sellModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>List Your PC Part for Sale</h2>
+                        <span class="close-modal" id="closeSellModal">&times;</span>
+                    </div>
+                    <form id="sellItemForm" class="sell-form">
+                        <div class="form-group">
+                            <label for="itemTitle">Item Title</label>
+                            <input type="text" id="itemTitle" required placeholder="e.g. NVIDIA RTX 3080 Ti">
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCategory">Category</label>
+                            <select id="itemCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="cpu">CPU</option>
+                                <option value="gpu">GPU</option>
+                                <option value="motherboard">Motherboard</option>
+                                <option value="ram">RAM</option>
+                                <option value="storage">Storage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCondition">Condition</label>
+                            <select id="itemCondition" required>
+                                <option value="">Select Condition</option>
+                                <option value="excellent">Like New</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                                <option value="poor">For Parts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemPrice">Asking Price (₱)</label>
+                            <input type="number" id="itemPrice" required min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="itemDescription">Description</label>
+                            <textarea id="itemDescription" rows="4" placeholder="Describe the item's condition, usage, etc."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Your Location</label>
+                            <input type="text" id="location" placeholder="City, Province">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">List Item</button>
+                            <button type="button" class="btn-secondary" id="cancelSell">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="shop-footer">
+            <div class="shop-footer-content">
+                <div class="shop-footer-section">
+                    <h3>Shop-It</h3>
+                    <p>Philippines' trusted marketplace for used PC parts</p>
+                </div>
+                <div class="shop-footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">How to Buy</a></li>
+                        <li><a href="#">Seller Guidelines</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="shop-footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="shop-footer-bottom">
+                <p>&copy; 2023 Shop-It PC Parts Marketplace. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="shop-it-script.js"></script>
+</body>
+</html>
