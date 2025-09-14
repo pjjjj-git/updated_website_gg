@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Ticket System</title>
+    <link rel="stylesheet" href="admin-ticket-styles.css">
+</head>
+<body class="antialiased">
+    <!-- Main container -->
+    <div class="main-container">
+        <!-- ===================== HEADER ===================== -->
+        <header class="ticket-header">
+            <div class="ticket-header-top">
+                <div class="ticket-logo">FRUPS / Admin Tickets</div>
+                <div class="ticket-header-actions">
+                    <div class="ticket-search-bar-right">
+                        <div class="ticket-search">
+                            <span class="ticket-search-icon">🔍</span>
+                            <input
+                                type="text"
+                                placeholder="Search tickets..."
+                                class="ticket-search-input"
+                            />
+                        </div>
+                        <!-- User actions -->
+                        <div class="ticket-user-actions-row">
+                            <span id="userDisplay" class="ticket-user-profile" title="Profile"></span>
+                            <span class="ticket-user-notif" title="Notifications">🔔</span>
+                            <span class="ticket-logout" title="Logout" onclick="logoutUser()">🚪</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="ticket-header-nav">
+        <a href="../MainForumPage/mainforum.html" class="ticket-header-link">FORUMS</a>
+        <a href="../ShopItPage/shop-it.html" class="ticket-header-link">SHOP-IT</a>
+        <a href="admin-ticket.html" class="ticket-header-link active">ADMIN TICKET</a>
+            </nav>
+
+            <div class="ticket-header-subnav">
+                <a href="#" class="ticket-header-subnav-link active" data-tab="all-tickets">ALL TICKETS</a>
+                <a href="#" class="ticket-header-subnav-link" data-tab="open-tickets">OPEN TICKETS</a>
+                <a href="#" class="ticket-header-subnav-link" data-tab="pending-tickets">PENDING</a>
+                <a href="#" class="ticket-header-subnav-link" data-tab="resolved-tickets">RESOLVED</a>
+                <a href="#" class="ticket-header-subnav-link" data-tab="create-ticket">+ NEW TICKET</a>
+            </div>
+        </header>
+
+        <!-- ===================== MAIN CONTENT ===================== -->
+        <main class="ticket-main-content">
+            <!-- Stats Overview -->
+            <div class="ticket-stats">
+                <div class="ticket-stat-card">
+                    <div class="ticket-stat-icon">📥</div>
+                    <div class="ticket-stat-info">
+                        <div class="ticket-stat-number">24</div>
+                        <div class="ticket-stat-label">Total Tickets</div>
+                    </div>
+                </div>
+                <div class="ticket-stat-card">
+                    <div class="ticket-stat-icon">🔴</div>
+                    <div class="ticket-stat-info">
+                        <div class="ticket-stat-number">8</div>
+                        <div class="ticket-stat-label">Open Tickets</div>
+                    </div>
+                </div>
+                <div class="ticket-stat-card">
+                    <div class="ticket-stat-icon">🟡</div>
+                    <div class="ticket-stat-info">
+                        <div class="ticket-stat-number">5</div>
+                        <div class="ticket-stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="ticket-stat-card">
+                    <div class="ticket-stat-icon">🟢</div>
+                    <div class="ticket-stat-info">
+                        <div class="ticket-stat-number">11</div>
+                        <div class="ticket-stat-label">Resolved</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tickets Table -->
+            <div class="ticket-table-container">
+                <div class="ticket-table-header">
+                    <h2>All Tickets</h2>
+                    <div class="ticket-table-controls">
+                        <select class="ticket-filter">
+                            <option>Filter by</option>
+                            <option>Priority</option>
+                            <option>Status</option>
+                            <option>Assignee</option>
+                        </select>
+                        <select class="ticket-sort">
+                            <option>Sort by</option>
+                            <option>Newest</option>
+                            <option>Oldest</option>
+                            <option>Priority</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table class="ticket-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Subject</th>
+                            <th>Requester</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Date Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#4567</td>
+                            <td>Unable to access forum after password reset</td>
+                            <td>john_doe</td>
+                            <td><span class="ticket-status open">Open</span></td>
+                            <td><span class="ticket-priority high">High</span></td>
+                            <td>Oct 28, 2025</td>
+                            <td>
+                                <button class="ticket-action-btn view">View</button>
+                                <button class="ticket-action-btn assign">Assign</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#4566</td>
+                            <td>Shop-It payment processing issue</td>
+                            <td>sarah_smith</td>
+                            <td><span class="ticket-status pending">Pending</span></td>
+                            <td><span class="ticket-priority urgent">Urgent</span></td>
+                            <td>Oct 27, 2025</td>
+                            <td>
+                                <button class="ticket-action-btn view">View</button>
+                                <button class="ticket-action-btn assign">Assign</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#4565</td>
+                            <td>Request for account deletion</td>
+                            <td>mike_jones</td>
+                            <td><span class="ticket-status open">Open</span></td>
+                            <td><span class="ticket-priority medium">Medium</span></td>
+                            <td>Oct 26, 2025</td>
+                            <td>
+                                <button class="ticket-action-btn view">View</button>
+                                <button class="ticket-action-btn assign">Assign</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#4564</td>
+                            <td>Report inappropriate content in General Discussion</td>
+                            <td>emma_wilson</td>
+                            <td><span class="ticket-status resolved">Resolved</span></td>
+                            <td><span class="ticket-priority high">High</span></td>
+                            <td>Oct 25, 2025</td>
+                            <td>
+                                <button class="ticket-action-btn view">View</button>
+                                <button class="ticket-action-btn assign">Assign</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#4563</td>
+                            <td>Bug in dark theme rendering</td>
+                            <td>tech_guru</td>
+                            <td><span class="ticket-status open">Open</span></td>
+                            <td><span class="ticket-priority low">Low</span></td>
+                            <td>Oct 24, 2025</td>
+                            <td>
+                                <button class="ticket-action-btn view">View</button>
+                                <button class="ticket-action-btn assign">Assign</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="ticket-pagination">
+                    <button class="pagination-btn">Previous</button>
+                    <span class="pagination-page">Page 1 of 3</span>
+                    <button class="pagination-btn">Next</button>
+                </div>
+            </div>
+
+            <!-- Ticket Detail Modal (Hidden by default) -->
+            <div class="ticket-modal" id="ticketModal">
+                <div class="ticket-modal-content">
+                    <div class="ticket-modal-header">
+                        <h2>Ticket #4567</h2>
+                        <span class="ticket-modal-close">&times;</span>
+                    </div>
+                    <div class="ticket-modal-body">
+                        <div class="ticket-detail-header">
+                            <div>
+                                <h3>Unable to access forum after password reset</h3>
+                                <div class="ticket-meta">
+                                    <span class="ticket-status open">Open</span>
+                                    <span class="ticket-priority high">High Priority</span>
+                                    <span>Created by: john_doe</span>
+                                    <span>Oct 28, 2025, 14:32</span>
+                                </div>
+                            </div>
+                            <div class="ticket-assignee">
+                                <strong>Assignee:</strong> Unassigned
+                                <button class="ticket-action-btn assign">Assign to Me</button>
+                            </div>
+                        </div>
+
+                        <div class="ticket-conversation">
+                            <div class="ticket-message">
+                                <div class="message-header">
+                                    <strong>john_doe</strong> - <span>Oct 28, 2025, 14:32</span>
+                                </div>
+                                <div class="message-content">
+                                    <p>Hello, I reset my password yesterday and now I can't access the forum. I keep getting "invalid credentials" error even though I'm sure I'm using the correct password. I've tried resetting it again but the problem persists.</p>
+                                </div>
+                            </div>
+
+                            <div class="ticket-message admin">
+                                <div class="message-header">
+                                    <strong>Admin_Support</strong> - <span>Oct 28, 2025, 15:45</span>
+                                </div>
+                                <div class="message-content">
+                                    <p>Hello John, thank you for reporting this issue. We've seen this happen occasionally after password resets. Our team is looking into it and we'll update you as soon as we have more information.</p>
+                                    <p>In the meantime, please try clearing your browser cache and cookies, then attempt to login again.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ticket-response">
+                            <h4>Add Response</h4>
+                            <textarea placeholder="Type your response here..." rows="4"></textarea>
+                            <div class="response-actions">
+                                <select>
+                                    <option>Update status to...</option>
+                                    <option>Open</option>
+                                    <option>Pending</option>
+                                    <option>Resolved</option>
+                                </select>
+                                <button class="ticket-action-btn primary">Post Response</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Create Ticket Modal -->
+            <div class="ticket-modal" id="createTicketModal">
+                <div class="ticket-modal-content">
+                    <div class="ticket-modal-header">
+                        <h2>Create New Ticket</h2>
+                        <span class="ticket-modal-close">&times;</span>
+                    </div>
+                    <div class="ticket-modal-body">
+                        <form id="createTicketForm">
+                            <div class="form-group">
+                                <label for="ticketSubject">Subject</label>
+                                <input type="text" id="ticketSubject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ticketRequester">Requester</label>
+                                <input type="text" id="ticketRequester" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ticketPriority">Priority</label>
+                                <select id="ticketPriority" required>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="ticketDescription">Description</label>
+                                <textarea id="ticketDescription" rows="5" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="ticket-action-btn" onclick="closeCreateModal()">Cancel</button>
+                                <button type="submit" class="ticket-action-btn primary">Create Ticket</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ===================== FOOTER ===================== -->
+        <footer class="ticket-footer">
+            <p>&copy; 2025 RUPS Tech Forums. Admin Ticket System</p>
+        </footer>
+    </div>
+
+    <script src="admin-ticket-script.js"></script>
+</body>
+</html>
