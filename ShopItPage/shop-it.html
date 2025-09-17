@@ -5,314 +5,258 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop-It - PC Parts Marketplace</title>
     <link rel="stylesheet" href="shop-it-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="antialiased">
-    <!-- Main container -->
+    <!-- Main Container -->
     <div class="main-container">
-        <!-- ===================== HEADER ===================== -->
-        <header class="shop-header">
-            <div class="shop-header-top">
-                <div class="shop-logo">FRUPS / SHOP-IT  </div>
-                <div class="shop-header-actions">
-                    <div class="shop-search-bar-right">
-                        <div class="shop-search">
-                            
-                            <span class="shop-search-icon">🔍</span>
-                            <input
-                                type="text"
-                                placeholder="Search products..."
-                                class="shop-search-input"
-                            />
+        <!-- Modern Header -->
+        <header class="modern-header">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo">
+                        <span class="logo-icon">🛒</span>
+                        <span class="logo-text">SHOP-IT</span>
+                    </div>
+                    <nav class="main-nav">
+                        <a href="../MainForumPage/mainforum.html" class="nav-link">FORUMS</a>
+                        <a href="shop-it.html" class="nav-link active">SHOP-IT</a>
+                        <a href="../AdminTicketPage/admin-ticket.html" class="nav-link">ADMIN TICKET</a>
+                    </nav>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search used parts..." class="search-input" id="searchInput">
+                    </div>
+                    
+                    <div class="user-actions">
+                        <div class="action-item" title="Profile">
+                            <img id="userDisplay" class="user-avatar" src="../MainForumPage/furry.png" alt="User Profile">
                         </div>
-                        <!-- User actions -->
-                        <div class="shop-user-actions-row">
-                            <span class="shop-user-profile" title="Profile"></span>
-                            <span class="shop-cart-icon" title="Cart">🛒</span>
-                            <span class="shop-user-notif" title="Notifications">🔔</span>
+                        <div class="action-item" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="action-item" title="Inbox">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="action-item watchlist-item" title="Watchlist" id="watchlistIcon">
+                            <i class="fas fa-heart"></i>
+                            <span class="watchlist-count" id="watchlistCount">0</span>
+                        </div>
+                        <div class="action-item" title="Logout" onclick="logoutUser()">
+                            <i class="fas fa-sign-out-alt"></i>
                         </div>
                     </div>
                 </div>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <nav class="shop-header-nav">
-        <a href="../MainForumPage/mainforum.html" class="shop-header-link">FORUMS</a>
-        <a href="shop-it.html" class="shop-header-link active">SHOP-IT</a>
-        <a href="../AdminTicketPage/admin-ticket.html" class="shop-header-link">ADMIN TICKET</a>
-            </nav>
-
-            <div class="shop-header-subnav">
-                <a href="#" class="shop-header-subnav-link">ALL CATEGORIES</a>
-                <a href="#" class="shop-header-subnav-link">CPUs</a>
-                <a href="#" class="shop-header-subnav-link">GPUs</a>
-                <a href="#" class="shop-header-subnav-link">MOTHERBOARDS</a>
-                <a href="#" class="shop-header-subnav-link">RAM</a>
-                <a href="#" class="shop-header-subnav-link">STORAGE</a>
-                <a href="#" class="shop-header-subnav-link">POWER SUPPLIES</a>
-                <a href="#" class="shop-header-subnav-link">COOLING</a>
+            
+            <!-- Category Navigation -->
+            <div class="category-nav">
+                <div class="category-container">
+                    <a href="#" class="category-link active" data-category="all">ALL PARTS</a>
+                    <a href="#" class="category-link" data-category="cpu">CPUs</a>
+                    <a href="#" class="category-link" data-category="gpu">GPUs</a>
+                    <a href="#" class="category-link" data-category="ram">RAM</a>
+                    <a href="#" class="category-link" data-category="storage">STORAGE</a>
+                    <a href="#" class="category-link" data-category="motherboard">MOTHERBOARDS</a>
+                    <a href="#" class="category-link" data-category="psu">POWER SUPPLIES</a>
+                    <a href="#" class="category-link" data-category="cooling">COOLING</a>
+                </div>
             </div>
         </header>
 
-        <!-- ===================== MAIN CONTENT ===================== -->
+        <!-- Main Content -->
         <main class="shop-main-content">
-            <!-- Hero Banner -->
+             <!-- Hero Banner -->
             <div class="shop-hero">
                 <div class="shop-hero-content">
-                    <h1>Build Your Dream PC</h1>
-                    <p>Find the best deals on PC components and accessories</p>
-                    <button class="shop-cta-button">Shop Now</button>
+                    <h1>Buy & Sell Used PC Parts</h1>
+                    <p>Find great deals on pre-owned components from trusted sellers in the Philippines</p>
+                    <div class="hero-actions">
+                        <button class="shop-cta-button primary" id="browseBtn">Browse Parts</button>
+                        <button class="shop-cta-button secondary" id="sellNowBtn">Start Selling</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Deals of the Day -->
+            <!-- User Welcome -->
+            <div class="user-welcome" id="userWelcome">
+                <div class="welcome-left">
+                    <span>Welcome back, <span id="usernameDisplay">User</span></span>
+                    <div class="user-stats">
+                        <span class="stat">Items Listed: <strong id="userListings">0</strong></span>
+                        <span class="stat">Items Sold: <strong id="userSales">0</strong></span>
+                        <span class="stat">Rating: <strong id="userRating">⭐ New Seller</strong></span>
+                    </div>
+                </div>
+                <div class="welcome-right">
+                    <button class="dashboard-btn" id="dashboardBtn">My Dashboard</button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="marketplace-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalListings">1,523</div>
+                    <div class="stat-label">Active Listings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalSellers">842</div>
+                    <div class="stat-label">Verified Sellers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="todaysListings">23</div>
+                    <div class="stat-label">Listed Today</div>
+                </div>
+            </div>
+
+            <!-- Recent Listings -->
             <section class="shop-deals-section">
-                <h2 class="shop-section-title">Deals of the Day</h2>
-                <div class="shop-products-grid">
-                    <!-- Product 1 -->
-                    <div class="shop-product-card">
-                        <div class="shop-product-image">
-                            <img src="https://via.placeholder.com/250x200/3c2fb7/ffffff?text=RTX+5090" alt="RTX 5090">
-                        </div>
-                        <div class="shop-product-info">
-                            <h3 class="shop-product-title">NVIDIA GeForce RTX 5090</h3>
-                            <div class="shop-product-rating">
-                                <span class="shop-stars">★★★★★</span>
-                                <span class="shop-review-count">(1,249)</span>
-                            </div>
-                            <div class="shop-product-price">
-                                <span class="shop-current-price">$1,599.99</span>
-                                <span class="shop-original-price">$1,799.99</span>
-                                <span class="shop-discount">Save 11%</span>
-                            </div>
-                            <div class="shop-product-features">
-                                <ul>
-                                    <li>24GB GDDR7 Memory</li>
-                                    <li>PCI Express 5.0</li>
-                                    <li>DLSS 4.0 Technology</li>
-                                </ul>
-                            </div>
-                            <div class="shop-product-shipping">
-                                FREE delivery <strong>Tomorrow</strong>
-                            </div>
-                            <button class="shop-add-to-cart">Add to Cart</button>
-                        </div>
+                <div class="section-header">
+                    <h2 class="shop-section-title">Recent Listings</h2>
+                    <div class="sort-controls">
+                        <select id="sortBy">
+                            <option value="newest">Newest First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
                     </div>
-
-                    <!-- Product 2 -->
-                    <div class="shop-product-card">
-                        <div class="shop-product-image">
-                            <img src="https://via.placeholder.com/250x200/3c2fb7/ffffff?text=Ryzen+9+9950X" alt="Ryzen 9 9950X">
-                        </div>
-                        <div class="shop-product-info">
-                            <h3 class="shop-product-title">AMD Ryzen 9 9950X</h3>
-                            <div class="shop-product-rating">
-                                <span class="shop-stars">★★★★☆</span>
-                                <span class="shop-review-count">(892)</span>
-                            </div>
-                            <div class="shop-product-price">
-                                <span class="shop-current-price">$699.99</span>
-                                <span class="shop-original-price">$799.99</span>
-                                <span class="shop-discount">Save 13%</span>
-                            </div>
-                            <div class="shop-product-features">
-                                <ul>
-                                    <li>16 Cores / 32 Threads</li>
-                                    <li>5.7GHz Boost Clock</li>
-                                    <li>AM5 Socket</li>
-                                </ul>
-                            </div>
-                            <div class="shop-product-shipping">
-                                FREE delivery <strong>Tomorrow</strong>
-                            </div>
-                            <button class="shop-add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="shop-product-card">
-                        <div class="shop-product-image">
-                            <img src="https://via.placeholder.com/250x200/3c2fb7/ffffff?text=DDR5+RAM" alt="DDR5 RAM">
-                        </div>
-                        <div class="shop-product-info">
-                            <h3 class="shop-product-title">Corsair Vengeance RGB DDR5 32GB</h3>
-                            <div class="shop-product-rating">
-                                <span class="shop-stars">★★★★★</span>
-                                <span class="shop-review-count">(1,547)</span>
-                            </div>
-                            <div class="shop-product-price">
-                                <span class="shop-current-price">$149.99</span>
-                                <span class="shop-original-price">$179.99</span>
-                                <span class="shop-discount">Save 17%</span>
-                            </div>
-                            <div class="shop-product-features">
-                                <ul>
-                                    <li>6400MHz CL32</li>
-                                    <li>RGB Lighting</li>
-                                    <li>Intel XMP 3.0 Ready</li>
-                                </ul>
-                            </div>
-                            <div class="shop-product-shipping">
-                                FREE delivery <strong>Tomorrow</strong>
-                            </div>
-                            <button class="shop-add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="shop-product-card">
-                        <div class="shop-product-image">
-                            <img src="https://via.placeholder.com/250x200/3c2fb7/ffffff?text=SSD+2TB" alt="SSD 2TB">
-                        </div>
-                        <div class="shop-product-info">
-                            <h3 class="shop-product-title">Samsung 990 Pro 2TB NVMe SSD</h3>
-                            <div class="shop-product-rating">
-                                <span class="shop-stars">★★★★★</span>
-                                <span class="shop-review-count">(3,221)</span>
-                            </div>
-                            <div class="shop-product-price">
-                                <span class="shop-current-price">$199.99</span>
-                                <span class="shop-original-price">$249.99</span>
-                                <span class="shop-discount">Save 20%</span>
-                            </div>
-                            <div class="shop-product-features">
-                                <ul>
-                                    <li>PCIe 4.0 NVMe</li>
-                                    <li>Read: 7,450 MB/s</li>
-                                    <li>5-Year Warranty</li>
-                                </ul>
-                            </div>
-                            <div class="shop-product-shipping">
-                                FREE delivery <strong>Tomorrow</strong>
-                            </div>
-                            <button class="shop-add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
+                </div>
+                <div class="shop-products-grid" id="recentListings">
+                    <!-- Products will be dynamically inserted here -->
                 </div>
             </section>
 
             <!-- Browse by Category -->
             <section class="shop-categories-section">
                 <h2 class="shop-section-title">Shop by Category</h2>
+                <p class="section-description">Browse through our specialized categories to find exactly what you need for your PC build or upgrade.</p>
                 <div class="shop-categories-grid">
-                    <div class="shop-category-card">
+                    <div class="shop-category-card" data-category="cpu">
                         <div class="shop-category-image">
-                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=CPU" alt="CPUs">
+                            <img src="cpu.jpg" alt="CPUs">
+                            <div class="category-count">124 listings</div>
                         </div>
                         <h3>Processors</h3>
+                        <p class="category-description">Find CPUs from Intel and AMD for gaming, productivity, and budget builds.</p>
+                        <p class="avg-price">Avg: ₱4,500</p>
                     </div>
-                    <div class="shop-category-card">
+                    <div class="shop-category-card" data-category="gpu">
                         <div class="shop-category-image">
-                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=GPU" alt="GPUs">
+                            <img src="gpu.jpg" alt="GPUs">
+                            <div class="category-count">256 listings</div>
                         </div>
                         <h3>Graphics Cards</h3>
+                        <p class="category-description">Browse GPUs from NVIDIA and AMD for gaming, rendering, and mining.</p>
+                        <p class="avg-price">Avg: ₱12,000</p>
                     </div>
-                    <div class="shop-category-card">
+                    <div class="shop-category-card" data-category="ram">
                         <div class="shop-category-image">
-                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=MB" alt="Motherboards">
-                        </div>
-                        <h3>Motherboards</h3>
-                    </div>
-                    <div class="shop-category-card">
-                        <div class="shop-category-image">
-                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=RAM" alt="RAM">
+                            <img src="ram.jpg" alt="RAM">
+                            <div class="category-count">178 listings</div>
                         </div>
                         <h3>Memory</h3>
+                        <p class="category-description">DDR4 and DDR5 RAM modules from trusted brands like Corsair, G.Skill, and Kingston.</p>
+                        <p class="avg-price">Avg: ₱2,800</p>
                     </div>
-                    <div class="shop-category-card">
+                    <div class="shop-category-card" data-category="storage">
                         <div class="shop-category-image">
-                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=SSD" alt="Storage">
+                            <img src="ssd.jpg" alt="Storage">
+                            <div class="category-count">195 listings</div>
                         </div>
                         <h3>Storage</h3>
-                    </div>
-                    <div class="shop-category-card">
-                        <div class="shop-category-image">
-                            <img src="https://via.placeholder.com/150x150/3c2fb7/ffffff?text=PSU" alt="Power Supplies">
-                        </div>
-                        <h3>Power Supplies</h3>
+                        <p class="category-description">SSDs, HDDs, and NVMe drives for faster load times and expanded storage.</p>
+                        <p class="avg-price">Avg: ₱3,200</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Recently Viewed -->
-            <section class="shop-recent-section">
-                <h2 class="shop-section-title">Recently Viewed</h2>
-                <div class="shop-products-grid">
-                    <!-- Product 1 -->
-                    <div class="shop-product-card">
-                        <div class="shop-product-image">
-                            <img src="https://via.placeholder.com/250x200/3c2fb7/ffffff?text=Case" alt="PC Case">
-                        </div>
-                        <div class="shop-product-info">
-                            <h3 class="shop-product-title">Lian Li O11 Dynamic Evo</h3>
-                            <div class="shop-product-rating">
-                                <span class="shop-stars">★★★★☆</span>
-                                <span class="shop-review-count">(874)</span>
-                            </div>
-                            <div class="shop-product-price">
-                                <span class="shop-current-price">$159.99</span>
-                            </div>
-                            <div class="shop-product-shipping">
-                                FREE delivery in 2 days
-                            </div>
-                            <button class="shop-add-to-cart">Add to Cart</button>
-                        </div>
+            <!-- Sell Item Modal -->
+            <div class="modal" id="sellModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>List Your PC Part for Sale</h2>
+                        <span class="close-modal" id="closeSellModal">&times;</span>
                     </div>
-
-                    <!-- Product 2 -->
-                    <div class="shop-product-card">
-                        <div class="shop-product-image">
-                            <img src="https://via.placeholder.com/250x200/3c2fb7/ffffff?text=AIO" alt="AIO Cooler">
+                    <form id="sellItemForm" class="sell-form">
+                        <div class="form-group">
+                            <label for="itemTitle">Item Title</label>
+                            <input type="text" id="itemTitle" required placeholder="e.g. NVIDIA RTX 3080 Ti">
                         </div>
-                        <div class="shop-product-info">
-                            <h3 class="shop-product-title">Corsair iCUE H150i Elite</h3>
-                            <div class="shop-product-rating">
-                                <span class="shop-stars">★★★★★</span>
-                                <span class="shop-review-count">(1,302)</span>
-                            </div>
-                            <div class="shop-product-price">
-                                <span class="shop-current-price">$189.99</span>
-                                <span class="shop-original-price">$219.99</span>
-                            </div>
-                            <div class="shop-product-shipping">
-                                FREE delivery <strong>Tomorrow</strong>
-                            </div>
-                            <button class="shop-add-to-cart">Add to Cart</button>
+                        <div class="form-group">
+                            <label for="itemCategory">Category</label>
+                            <select id="itemCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="cpu">CPU</option>
+                                <option value="gpu">GPU</option>
+                                <option value="motherboard">Motherboard</option>
+                                <option value="ram">RAM</option>
+                                <option value="storage">Storage</option>
+                            </select>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="itemCondition">Condition</label>
+                            <select id="itemCondition" required>
+                                <option value="">Select Condition</option>
+                                <option value="excellent">Like New</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                                <option value="poor">For Parts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemPrice">Asking Price (₱)</label>
+                            <input type="number" id="itemPrice" required min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="itemDescription">Description</label>
+                            <textarea id="itemDescription" rows="4" placeholder="Describe the item's condition, usage, etc."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Your Location</label>
+                            <input type="text" id="location" placeholder="City, Province">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">List Item</button>
+                            <button type="button" class="btn-secondary" id="cancelSell">Cancel</button>
+                        </div>
+                    </form>
                 </div>
-            </section>
+            </div>
         </main>
 
-        <!-- ===================== FOOTER ===================== -->
+        <!-- Footer -->
         <footer class="shop-footer">
             <div class="shop-footer-content">
                 <div class="shop-footer-section">
-                    <h3>Get to Know Us</h3>
+                    <h3>Shop-It</h3>
+                    <p>Philippines' trusted marketplace for used PC parts. Connecting buyers and sellers since 2023.</p>
+                </div>
+                <div class="shop-footer-section">
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">About Shop-It</a></li>
-                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">How to Buy</a></li>
+                        <li><a href="#">Seller Guidelines</a></li>
+                        <li><a href="#">Help Center</a></li>
                     </ul>
                 </div>
                 <div class="shop-footer-section">
-                    <h3>Make Money with Us</h3>
+                    <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="#">Sell products on Shop-It</a></li>
-                        <li><a href="#">Become an Affiliate</a></li>
-                        <li><a href="#">Advertise Your Products</a></li>
-                    </ul>
-                </div>
-                <div class="shop-footer-section">
-                    <h3>Customer Service</h3>
-                    <ul>
-                        <li><a href="#">Your Account</a></li>
-                        <li><a href="#">Your Orders</a></li>
-                        <li><a href="#">Shipping Rates & Policies</a></li>
-                        <li><a href="#">Returns & Replacements</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
                     </ul>
                 </div>
             </div>
             <div class="shop-footer-bottom">
-                <p>&copy; 2025 Shop-It PC Parts. All rights reserved.</p>
+                <p>&copy; 2023 Shop-It PC Parts Marketplace. All rights reserved.</p>
             </div>
         </footer>
     </div>
